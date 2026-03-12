@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+==========================================================================
+【AI HANDOVER NOTE】
+1. DESIGN PHILOSOPHY:
+   - Cinematic Luxury: Inspired by high-end wedding cinematography brands, this design system embodies emotional storytelling through visual hierarchy and atmospheric depth.
+   - Dark + Warm Aesthetic: A sophisticated dark base (deep charcoal) paired with warm amber/candlelit accents creates an intimate, premium feel reminiscent of golden hour wedding photography.
+   - Minimal Elegance: Generous whitespace, refined typography hierarchy (Cormorant Garamond for display/headlines, Inter for UI), and restrained color palette allow photography to be the hero.
+   - Emotional Resonance: Color choices evoke warmth, romance, and timelessness—amber gold (primary) represents candlelight and sunset moments, while muted rose tones add softness.
+
+2. TYPOGRAPHY:
+   - Cormorant Garamond (Display): Elegant serif with romantic character, perfect for headlines like 'Capturing Love Stories That Last Forever'. Its refined letterforms convey luxury and timelessness.
+   - Inter (UI/Body): Modern geometric sans-serif ensures excellent readability for service descriptions, testimonials, and body content. Its neutral character doesn't compete with photography.
+   - JetBrains Mono: Used sparingly for metadata (dates, locations, technical specs in portfolio).
+
+3. COLOR SYSTEM:
+   - Brand Primary (Amber Gold, H:50): Warm candlelit tone representing golden hour magic and intimate moments. Maps to --primary for CTAs and --accent for highlights.
+   - Dark Base (H:30): Deep warm charcoal with subtle brown undertones, never pure black—maintains warmth even in shadows.
+   - Muted Rose (H:20): Secondary accent for softer emotional touchpoints, used in testimonials and romantic sections.
+   - Ring/Focus: Amber with higher luminance for accessibility, ensuring interactive elements are discoverable.
+   - Semantic Colors: Destructive uses deep burgundy (luxury alternative to red), success uses muted sage green (natural, organic), warning uses warm terracotta.
+
+4. USAGE GUIDE:
+   - Layout: Full-width hero sections with edge-to-edge imagery, followed by centered containers (max-w-7xl) for content sections. Use Bento-style modular cards for service grids.
+   - Effects: Subtle backdrop-blur on overlays (backdrop-blur-md) to maintain image visibility. Rim-light effect on cards using border-amber-500/20 with shadow-2xl for depth.
+   - Animations: Smooth scroll-triggered fades (Framer Motion) with 0.6s ease-out timing. Parallax on hero images at 0.5 speed.
+   - Photography Display: Always use aspect-ratio utilities (aspect-[3/2] for landscape, aspect-[4/5] for portraits). Apply subtle vignette via gradient overlays.
+   - Mobile: Reduce backdrop-blur intensity, simplify parallax to simple fades, ensure touch targets are 44px minimum.
+   - Radius: 0.75rem provides modern softness without being overly rounded—maintains sophistication.
+==========================================================================
+*/
+
+:root {
+  /* Typography */
+  --font-sans: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: JetBrains Mono, 'Courier New', monospace;
+  
+  /* Radius */
+  --radius: 0.75rem;
+
+  /* Core UI Tokens */
+  --background: oklch(0.98 0.005 30);
+  --foreground: oklch(0.15 0.02 30);
+  --card: oklch(0.99 0.003 30);
+  --card-foreground: oklch(0.15 0.02 30);
+  --popover: oklch(0.99 0.003 30);
+  --popover-foreground: oklch(0.15 0.02 30);
+  --primary: oklch(0.55 0.15 50);
+  --primary-foreground: oklch(0.98 0.005 50);
+  --secondary: oklch(0.92 0.01 30);
+  --secondary-foreground: oklch(0.20 0.02 30);
+  --muted: oklch(0.94 0.008 30);
+  --muted-foreground: oklch(0.45 0.015 30);
+  --accent: oklch(0.60 0.12 20);
+  --accent-foreground: oklch(0.98 0.005 20);
+  --destructive: oklch(0.50 0.18 15);
+  --destructive-foreground: oklch(0.98 0.005 15);
+  --border: oklch(0.88 0.01 30);
+  --input: oklch(0.88 0.01 30);
+  --ring: oklch(0.60 0.15 50);
+  
+  /* Chart Tokens */
+  --chart-1: oklch(0.55 0.15 50);
+  --chart-2: oklch(0.60 0.12 20);
+  --chart-3: oklch(0.50 0.10 140);
+  --chart-4: oklch(0.45 0.12 280);
+  --chart-5: oklch(0.52 0.14 35);
+  
+  /* Sidebar Tokens */
+  --sidebar: oklch(0.96 0.006 30);
+  --sidebar-foreground: oklch(0.20 0.02 30);
+  --sidebar-primary: oklch(0.55 0.15 50);
+  --sidebar-primary-foreground: oklch(0.98 0.005 50);
+  --sidebar-accent: oklch(0.92 0.01 30);
+  --sidebar-accent-foreground: oklch(0.20 0.02 30);
+  --sidebar-border: oklch(0.88 0.01 30);
+  --sidebar-ring: oklch(0.60 0.15 50);
+}
+
+.dark {
+  --background: oklch(0.12 0.015 30);
+  --foreground: oklch(0.92 0.008 30);
+  --card: oklch(0.15 0.018 30);
+  --card-foreground: oklch(0.92 0.008 30);
+  --popover: oklch(0.14 0.017 30);
+  --popover-foreground: oklch(0.92 0.008 30);
+  --primary: oklch(0.68 0.18 50);
+  --primary-foreground: oklch(0.12 0.015 50);
+  --secondary: oklch(0.22 0.025 30);
+  --secondary-foreground: oklch(0.88 0.01 30);
+  --muted: oklch(0.20 0.022 30);
+  --muted-foreground: oklch(0.62 0.015 30);
+  --accent: oklch(0.65 0.14 20);
+  --accent-foreground: oklch(0.12 0.015 20);
+  --destructive: oklch(0.55 0.20 15);
+  --destructive-foreground: oklch(0.92 0.008 15);
+  --border: oklch(0.25 0.025 30);
+  --input: oklch(0.25 0.025 30);
+  --ring: oklch(0.70 0.18 50);
+  
+  /* Chart Tokens */
+  --chart-1: oklch(0.68 0.18 50);
+  --chart-2: oklch(0.65 0.14 20);
+  --chart-3: oklch(0.58 0.12 145);
+  --chart-4: oklch(0.60 0.15 280);
+  --chart-5: oklch(0.62 0.16 35);
+  
+  /* Sidebar Tokens */
+  --sidebar: oklch(0.10 0.012 30);
+  --sidebar-foreground: oklch(0.88 0.01 30);
+  --sidebar-primary: oklch(0.68 0.18 50);
+  --sidebar-primary-foreground: oklch(0.12 0.015 50);
+  --sidebar-accent: oklch(0.22 0.025 30);
+  --sidebar-accent-foreground: oklch(0.88 0.01 30);
+  --sidebar-border: oklch(0.20 0.022 30);
+  --sidebar-ring: oklch(0.70 0.18 50);
+}
+
+@theme inline {
+  /* Shadcn Core Mapping */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Charts Mapping */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Sidebar Mapping */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Typography */
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+
+  /* Radius */
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply scroll-smooth antialiased;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans min-h-screen;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  code, pre {
+    @apply font-mono;
+  }
+
+  ::selection {
+    @apply bg-primary/20 text-primary;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/20 rounded-full hover:bg-muted-foreground/40;
+  }
+}
