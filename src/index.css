@@ -156,8 +156,19 @@
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
+  button,
+  input,
+  textarea,
+  select {
+    font-family: var(--font-body);
+  }
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-display font-normal tracking-tight;
+  }
+
+  a {
+    color: inherit;
   }
 
   code, pre {
