@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { ContactForm } from '@/components/ContactForm';
 import { IMAGES } from '@/assets/images';
-import { COMPANY_INFO, SOCIAL_LINKS } from '@/lib/index';
+import { COMPANY_INFO, SOCIAL_LINKS } from '@/config/site';
 
 export default function Contact() {
   return (

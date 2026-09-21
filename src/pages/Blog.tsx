@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
 import { Calendar, User, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { BLOG_POSTS, ROUTE_PATHS } from '@/lib/index';
+import { BLOG_POSTS } from '@/lib/index';
+import { ROUTE_PATHS } from '@/config/site';
 import { IMAGES } from '@/assets/images';
-import { springPresets, fadeInUp, staggerContainer, staggerItem } from '@/lib/motion';
+import { springPresets, staggerContainer, staggerItem } from '@/lib/motion';
 
 export default function Blog() {
   const blogPostsWithImages = BLOG_POSTS.map((post, index) => ({

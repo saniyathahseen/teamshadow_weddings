@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { SiInstagram, SiWhatsapp } from 'react-icons/si';
-import { ROUTE_PATHS, SOCIAL_LINKS, COMPANY_INFO } from '@/lib/index';
+import { ROUTE_PATHS, SOCIAL_LINKS, COMPANY_INFO } from '@/config/site';
 import { springPresets } from '@/lib/motion';
 
 interface LayoutProps {
