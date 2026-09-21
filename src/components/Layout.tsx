@@ -71,15 +71,15 @@ export function Layout({ children }: LayoutProps) {
         ref={headerRef}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-background/80 backdrop-blur-md shadow-lg'
-            : 'bg-transparent'
+            ? 'bg-[#300000]/95 backdrop-blur-md shadow-lg'
+            : 'bg-[#300000]/70 backdrop-blur-sm'
         }`}
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             <NavLink
               to={ROUTE_PATHS.HOME}
-              className="text-2xl font-bold tracking-tight text-primary hover:text-primary/80 transition-colors"
+              className="font-display text-2xl tracking-[0.16em] text-white hover:text-[#eadbd2] transition-colors"
             >
               {COMPANY_INFO.name}
             </NavLink>
@@ -90,8 +90,8 @@ export function Layout({ children }: LayoutProps) {
                   key={item.to}
                   to={item.to}
                   className={({ isActive }) =>
-                    `text-sm font-medium tracking-wide transition-colors hover:text-primary ${
-                      isActive ? 'text-primary' : 'text-foreground/80'
+                    `text-sm font-medium tracking-[0.12em] uppercase transition-colors hover:text-[#eadbd2] ${
+                      isActive ? 'text-[#eadbd2]' : 'text-white/80'
                     }`
                   }
                 >

@@ -32,7 +32,6 @@ export default function Services() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-5xl md:text-7xl font-bold mb-6 text-foreground"
-            style={{ fontFamily: 'Cormorant Garamond, serif' }}
           >
             Our Services
           </motion.h1>
@@ -56,7 +55,7 @@ export default function Services() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
               What We Offer
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -89,7 +88,7 @@ export default function Services() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Wedding Photography
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
@@ -163,7 +162,7 @@ export default function Services() {
               transition={{ duration: 0.8 }}
               className="order-1 lg:order-2"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Cinematic Wedding Films
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
@@ -206,7 +205,7 @@ export default function Services() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Pre-Wedding Shoots
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
@@ -280,7 +279,7 @@ export default function Services() {
               transition={{ duration: 0.8 }}
               className="order-1 lg:order-2"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Destination Weddings
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
@@ -322,7 +321,7 @@ export default function Services() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Ready to Capture Your Love Story?
             </h2>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">

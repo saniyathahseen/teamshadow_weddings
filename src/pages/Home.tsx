@@ -37,10 +37,10 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight">
+            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-normal mb-6 tracking-tight">
               {COMPANY_INFO.tagline}
             </h1>
-            <p className="text-lg md:text-xl lg:text-2xl mb-12 max-w-3xl mx-auto text-white/90">
+            <p className="text-lg md:text-xl lg:text-2xl mb-12 max-w-3xl mx-auto text-[#eadbd2]">
               {COMPANY_INFO.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -58,7 +58,7 @@ export default function Home() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="bg-white/10 hover:bg-white/20 text-white border-white/20 backdrop-blur-sm px-8 py-6 text-lg"
+                className="bg-transparent hover:bg-white/10 text-white border-white/60 backdrop-blur-sm px-8 py-6 text-lg"
               >
                 <Link to={ROUTE_PATHS.CONTACT}>
                   Book Your Wedding
