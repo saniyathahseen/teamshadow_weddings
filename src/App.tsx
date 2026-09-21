@@ -6,7 +6,7 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import { MotionConfig } from "framer-motion";
 import { Layout } from "@/components/Layout";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { ROUTE_PATHS } from "@/lib/index";
+import { ROUTE_PATHS } from "@/config/site";
 import Home from "@/pages/Home";
 import Portfolio from "@/pages/Portfolio";
 import Services from "@/pages/Services";

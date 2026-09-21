@@ -1,17 +1,7 @@
 import { motion } from 'framer-motion';
-import { Camera, Film, Heart, Sparkles, Plane, Book } from 'lucide-react';
 import { SERVICES } from '@/lib/index';
 import { ServiceCard } from '@/components/ServiceCard';
 import { IMAGES } from '@/assets/images';
-
-const iconMap = {
-  Camera,
-  Film,
-  Heart,
-  Sparkles,
-  Plane,
-  Book,
-};
 
 export default function Services() {
   const heroImages = [

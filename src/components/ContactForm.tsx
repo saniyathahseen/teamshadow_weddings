@@ -11,7 +11,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import type { ContactForm as ContactFormType } from '@/lib/index';
-import { SOCIAL_LINKS } from '@/lib/index';
+import { SOCIAL_LINKS } from '@/config/site';
 import { springPresets } from '@/lib/motion';
 
 const contactFormSchema = z.object({
@@ -49,9 +49,23 @@ export function ContactForm({ className = '' }: ContactFormProps) {
     setIsSubmitting(true);
 
     try {
-      const whatsappMessage = `*New Wedding Booking Inquiry*%0A%0A*Name:* ${data.name}%0A*Phone:* ${data.phone}%0A*Email:* ${data.email}%0A*Wedding Date:* ${data.weddingDate}%0A*Location:* ${data.weddingLocation}%0A*Event Type:* ${data.eventType}${data.message ? `%0A*Message:* ${data.message}` : ''}`;
+      const whatsappMessage = [
+        '*New Wedding Booking Inquiry*',
+        '',
+        `*Name:* ${data.name}`,
+        `*Phone:* ${data.phone}`,
+        `*Email:* ${data.email}`,
+        `*Wedding Date:* ${data.weddingDate}`,
+        `*Location:* ${data.weddingLocation}`,
+        `*Event Type:* ${data.eventType}`,
+        ...(data.message ? [`*Message:* ${data.message}`] : []),
+      ].join('\n');
 
-      window.open(`${SOCIAL_LINKS.whatsapp}?text=${whatsappMessage}`, '_blank');
+      window.open(
+        `${SOCIAL_LINKS.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`,
+        '_blank',
+        'noopener,noreferrer',
+      );
 
       toast({
         title: 'Inquiry Sent!',
@@ -59,7 +73,7 @@ export function ContactForm({ className = '' }: ContactFormProps) {
       });
 
       reset();
-    } catch (error) {
+    } catch {
       toast({
         title: 'Error',
         description: 'Something went wrong. Please try again or contact us directly.',

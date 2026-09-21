@@ -1,124 +1,94 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
-/*
-==========================================================================
-【AI HANDOVER NOTE】
-1. DESIGN PHILOSOPHY:
-   - Cinematic Luxury: Inspired by high-end wedding cinematography brands, this design system embodies emotional storytelling through visual hierarchy and atmospheric depth.
-   - Dark + Warm Aesthetic: A sophisticated dark base (deep charcoal) paired with warm amber/candlelit accents creates an intimate, premium feel reminiscent of golden hour wedding photography.
-   - Minimal Elegance: Generous whitespace, refined typography hierarchy (Cormorant Garamond for display/headlines, Inter for UI), and restrained color palette allow photography to be the hero.
-   - Emotional Resonance: Color choices evoke warmth, romance, and timelessness—amber gold (primary) represents candlelight and sunset moments, while muted rose tones add softness.
-
-2. TYPOGRAPHY:
-   - Cormorant Garamond (Display): Elegant serif with romantic character, perfect for headlines like 'Capturing Love Stories That Last Forever'. Its refined letterforms convey luxury and timelessness.
-   - Inter (UI/Body): Modern geometric sans-serif ensures excellent readability for service descriptions, testimonials, and body content. Its neutral character doesn't compete with photography.
-   - JetBrains Mono: Used sparingly for metadata (dates, locations, technical specs in portfolio).
-
-3. COLOR SYSTEM:
-   - Brand Primary (Amber Gold, H:50): Warm candlelit tone representing golden hour magic and intimate moments. Maps to --primary for CTAs and --accent for highlights.
-   - Dark Base (H:30): Deep warm charcoal with subtle brown undertones, never pure black—maintains warmth even in shadows.
-   - Muted Rose (H:20): Secondary accent for softer emotional touchpoints, used in testimonials and romantic sections.
-   - Ring/Focus: Amber with higher luminance for accessibility, ensuring interactive elements are discoverable.
-   - Semantic Colors: Destructive uses deep burgundy (luxury alternative to red), success uses muted sage green (natural, organic), warning uses warm terracotta.
-
-4. USAGE GUIDE:
-   - Layout: Full-width hero sections with edge-to-edge imagery, followed by centered containers (max-w-7xl) for content sections. Use Bento-style modular cards for service grids.
-   - Effects: Subtle backdrop-blur on overlays (backdrop-blur-md) to maintain image visibility. Rim-light effect on cards using border-amber-500/20 with shadow-2xl for depth.
-   - Animations: Smooth scroll-triggered fades (Framer Motion) with 0.6s ease-out timing. Parallax on hero images at 0.5 speed.
-   - Photography Display: Always use aspect-ratio utilities (aspect-[3/2] for landscape, aspect-[4/5] for portraits). Apply subtle vignette via gradient overlays.
-   - Mobile: Reduce backdrop-blur intensity, simplify parallax to simple fades, ensure touch targets are 44px minimum.
-   - Radius: 0.75rem provides modern softness without being overly rounded—maintains sophistication.
-==========================================================================
-*/
-
 :root {
   /* Typography */
-  --font-sans: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
   --font-mono: JetBrains Mono, 'Courier New', monospace;
   
   /* Radius */
   --radius: 0.75rem;
 
   /* Core UI Tokens */
-  --background: oklch(0.98 0.005 30);
-  --foreground: oklch(0.15 0.02 30);
-  --card: oklch(0.99 0.003 30);
-  --card-foreground: oklch(0.15 0.02 30);
-  --popover: oklch(0.99 0.003 30);
-  --popover-foreground: oklch(0.15 0.02 30);
-  --primary: oklch(0.55 0.15 50);
-  --primary-foreground: oklch(0.98 0.005 50);
-  --secondary: oklch(0.92 0.01 30);
-  --secondary-foreground: oklch(0.20 0.02 30);
-  --muted: oklch(0.94 0.008 30);
-  --muted-foreground: oklch(0.45 0.015 30);
-  --accent: oklch(0.60 0.12 20);
-  --accent-foreground: oklch(0.98 0.005 20);
-  --destructive: oklch(0.50 0.18 15);
-  --destructive-foreground: oklch(0.98 0.005 15);
-  --border: oklch(0.88 0.01 30);
-  --input: oklch(0.88 0.01 30);
-  --ring: oklch(0.60 0.15 50);
+  --background: #ffffff;
+  --foreground: #300000;
+  --card: #fffaf7;
+  --card-foreground: #300000;
+  --popover: #ffffff;
+  --popover-foreground: #300000;
+  --primary: #5c1d14;
+  --primary-foreground: #ffffff;
+  --secondary: #f1e6df;
+  --secondary-foreground: #3b0304;
+  --muted: #f7f1ed;
+  --muted-foreground: #825a3f;
+  --accent: #825a3f;
+  --accent-foreground: #ffffff;
+  --destructive: #3b0304;
+  --destructive-foreground: #ffffff;
+  --border: #eadbd2;
+  --input: #eadbd2;
+  --ring: #825a3f;
   
   /* Chart Tokens */
-  --chart-1: oklch(0.55 0.15 50);
-  --chart-2: oklch(0.60 0.12 20);
-  --chart-3: oklch(0.50 0.10 140);
-  --chart-4: oklch(0.45 0.12 280);
-  --chart-5: oklch(0.52 0.14 35);
+  --chart-1: #300000;
+  --chart-2: #5c1d14;
+  --chart-3: #3b0304;
+  --chart-4: #825a3f;
+  --chart-5: #eadbd2;
   
   /* Sidebar Tokens */
-  --sidebar: oklch(0.96 0.006 30);
-  --sidebar-foreground: oklch(0.20 0.02 30);
-  --sidebar-primary: oklch(0.55 0.15 50);
-  --sidebar-primary-foreground: oklch(0.98 0.005 50);
-  --sidebar-accent: oklch(0.92 0.01 30);
-  --sidebar-accent-foreground: oklch(0.20 0.02 30);
-  --sidebar-border: oklch(0.88 0.01 30);
-  --sidebar-ring: oklch(0.60 0.15 50);
+  --sidebar: #fffaf7;
+  --sidebar-foreground: #300000;
+  --sidebar-primary: #5c1d14;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f1e6df;
+  --sidebar-accent-foreground: #3b0304;
+  --sidebar-border: #eadbd2;
+  --sidebar-ring: #825a3f;
 }
 
 .dark {
-  --background: oklch(0.12 0.015 30);
-  --foreground: oklch(0.92 0.008 30);
-  --card: oklch(0.15 0.018 30);
-  --card-foreground: oklch(0.92 0.008 30);
-  --popover: oklch(0.14 0.017 30);
-  --popover-foreground: oklch(0.92 0.008 30);
-  --primary: oklch(0.68 0.18 50);
-  --primary-foreground: oklch(0.12 0.015 50);
-  --secondary: oklch(0.22 0.025 30);
-  --secondary-foreground: oklch(0.88 0.01 30);
-  --muted: oklch(0.20 0.022 30);
-  --muted-foreground: oklch(0.62 0.015 30);
-  --accent: oklch(0.65 0.14 20);
-  --accent-foreground: oklch(0.12 0.015 20);
-  --destructive: oklch(0.55 0.20 15);
-  --destructive-foreground: oklch(0.92 0.008 15);
-  --border: oklch(0.25 0.025 30);
-  --input: oklch(0.25 0.025 30);
-  --ring: oklch(0.70 0.18 50);
+  --background: #300000;
+  --foreground: #ffffff;
+  --card: #3b0304;
+  --card-foreground: #ffffff;
+  --popover: #3b0304;
+  --popover-foreground: #ffffff;
+  --primary: #825a3f;
+  --primary-foreground: #ffffff;
+  --secondary: #5c1d14;
+  --secondary-foreground: #ffffff;
+  --muted: #5c1d14;
+  --muted-foreground: #eadbd2;
+  --accent: #825a3f;
+  --accent-foreground: #ffffff;
+  --destructive: #3b0304;
+  --destructive-foreground: #ffffff;
+  --border: #5c1d14;
+  --input: #5c1d14;
+  --ring: #825a3f;
   
   /* Chart Tokens */
-  --chart-1: oklch(0.68 0.18 50);
-  --chart-2: oklch(0.65 0.14 20);
-  --chart-3: oklch(0.58 0.12 145);
-  --chart-4: oklch(0.60 0.15 280);
-  --chart-5: oklch(0.62 0.16 35);
+  --chart-1: #825a3f;
+  --chart-2: #5c1d14;
+  --chart-3: #3b0304;
+  --chart-4: #eadbd2;
+  --chart-5: #ffffff;
   
   /* Sidebar Tokens */
-  --sidebar: oklch(0.10 0.012 30);
-  --sidebar-foreground: oklch(0.88 0.01 30);
-  --sidebar-primary: oklch(0.68 0.18 50);
-  --sidebar-primary-foreground: oklch(0.12 0.015 50);
-  --sidebar-accent: oklch(0.22 0.025 30);
-  --sidebar-accent-foreground: oklch(0.88 0.01 30);
-  --sidebar-border: oklch(0.20 0.022 30);
-  --sidebar-ring: oklch(0.70 0.18 50);
+  --sidebar: #3b0304;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #825a3f;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #5c1d14;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #5c1d14;
+  --sidebar-ring: #825a3f;
 }
 
 @theme inline {
@@ -162,6 +132,7 @@
 
   /* Typography */
   --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
   --font-mono: var(--font-mono);
 
   /* Radius */
@@ -186,7 +157,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold tracking-tight;
+    @apply font-display font-normal tracking-tight;
   }
 
   code, pre {

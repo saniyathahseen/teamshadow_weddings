@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { Camera, Award, Heart, Users } from 'lucide-react';
 import { IMAGES } from '@/assets/images';
-import { TEAM_MEMBERS, COMPANY_INFO } from '@/lib/index';
+import { TEAM_MEMBERS } from '@/lib/index';
+import { COMPANY_INFO } from '@/config/site';
 
 export default function About() {
   const stats = [
