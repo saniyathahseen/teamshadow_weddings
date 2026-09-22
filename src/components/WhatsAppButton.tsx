@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
+import { SOCIAL_LINKS } from "@/config/site";
 
 export function WhatsAppButton() {
-  const whatsappNumber = "+919876543210";
   const message = encodeURIComponent(
     "Hi TEAMSHADOW WEDDINGS! I'm interested in booking your wedding photography services."
   );
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+  const whatsappUrl = `${SOCIAL_LINKS.whatsapp}?text=${message}`;
 
   return (
     <motion.a

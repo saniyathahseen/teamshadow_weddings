@@ -6,15 +6,22 @@ import { cn } from '@/lib/utils';
 
 interface GalleryGridProps {
   category?: string;
+  activeCategory?: string;
+  onCategoryChange?: (category: string) => void;
+  showFilters?: boolean;
   images: string[];
   className?: string;
 }
 
-export function GalleryGrid({ category, images, className }: GalleryGridProps) {
+export function GalleryGrid({ category = 'all', activeCategory, onCategoryChange, showFilters = true, images, className }: GalleryGridProps) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [activeCategory, setActiveCategory] = useState(category || 'all');
 
-  const filteredImages = activeCategory === 'all' ? images : images;
+  // Controlled when parent passes activeCategory + onCategoryChange (Portfolio page);
+  // otherwise fall back to the initial `category` prop (uncontrolled display-only mode).
+  const currentCategory = activeCategory ?? category;
+  const setCurrentCategory = (next: string) => {
+    if (onCategoryChange) onCategoryChange(next);
+  };
 
   const openLightbox = (image: string) => {
     setSelectedImage(image);
@@ -34,30 +41,32 @@ export function GalleryGrid({ category, images, className }: GalleryGridProps) {
 
   return (
     <div className={cn('w-full', className)}>
-      <div className="flex flex-wrap justify-center gap-3 mb-12">
-        {GALLERY_CATEGORIES.map((cat) => (
+      {showFilters && (
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {GALLERY_CATEGORIES.map((cat) => (
           <button
             key={cat.id}
-            onClick={() => setActiveCategory(cat.id)}
+            onClick={() => setCurrentCategory(cat.id)}
             className={cn(
               'px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300',
               'hover:scale-105 active:scale-95',
-              activeCategory === cat.id
+              currentCategory === cat.id
                 ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/30'
                 : 'bg-card text-muted-foreground hover:bg-accent hover:text-accent-foreground border border-border'
             )}
           >
             {cat.label}
-          </button>
-        ))}
-      </div>
+            </button>
+          ))}
+        </div>
+      )}
 
       <motion.div
         layout
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
       >
         <AnimatePresence mode="popLayout">
-          {filteredImages.map((image, index) => (
+          {images.map((image, index) => (
             <motion.div
               key={image}
               layout

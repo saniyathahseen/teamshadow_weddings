@@ -175,7 +175,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <GalleryGrid images={featuredImages} className="mb-12" />
+          <GalleryGrid images={featuredImages} showFilters={false} className="mb-12" />
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
