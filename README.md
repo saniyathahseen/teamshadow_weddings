@@ -41,7 +41,7 @@ src/
   hooks/               # reusable React hooks
   lib/index.ts         # typed business content
   lib/motion.ts        # animation presets
-  pages/               # route-level screens
+  pages/               # route-level screens and NotFound fallback
   App.tsx              # providers and routes
 public/                # files copied unchanged to the deployed site
 ```

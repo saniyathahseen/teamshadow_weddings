@@ -14,6 +14,7 @@ import Pricing from "@/pages/Pricing";
 import About from "@/pages/About";
 import Blog from "@/pages/Blog";
 import Contact from "@/pages/Contact";
+import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,7 @@ const App = () => (
               <Route path={ROUTE_PATHS.ABOUT} element={<About />} />
               <Route path={ROUTE_PATHS.BLOG} element={<Blog />} />
               <Route path={ROUTE_PATHS.CONTACT} element={<Contact />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>
           <WhatsAppButton />

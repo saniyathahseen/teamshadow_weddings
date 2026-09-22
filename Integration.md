@@ -27,13 +27,14 @@ This document records the integration boundaries that are present in the reposit
 
 ## Contact flow
 
-The contact form validates data in the browser with React Hook Form and Zod. A valid submission opens a pre-filled WhatsApp message using the configured contact link in `src/lib/index.ts`. No form data is persisted by this repository.
+The contact form validates data in the browser with React Hook Form and Zod. A valid submission opens a pre-filled WhatsApp message using the configured contact link in `src/config/site.ts`. No form data is persisted by this repository.
 
 This means:
 
 - WhatsApp hand-off is the current working enquiry integration.
 - There is no application API, database write, email service, or authentication flow.
 - Browser popup blocking can prevent WhatsApp from opening; users can use the direct WhatsApp link shown on the contact page.
+- Unknown routes render the shared `src/pages/NotFound.tsx` page instead of an empty application shell.
 
 ## Backend status
 
