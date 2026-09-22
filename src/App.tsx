@@ -14,6 +14,7 @@ import About from "@/pages/About";
 import Blog from "@/pages/Blog";
 import BlogPost from "@/pages/BlogPost";
 import Contact from "@/pages/Contact";
+import NotFound from "@/pages/NotFound";
 
 const App = () => (
   <TooltipProvider>
